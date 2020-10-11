@@ -23,23 +23,27 @@ export const NewConversationPage = () => {
     }
 
     return (
-        <div>
+        <div className="centered-container">
             <h1>New Conversation</h1>
             <input
                 type="text"
                 placeholder="Enter a name for your conversation here"
+                className="full-width"
                 value={nameValue}
                 onChange={e => setNameValue(e.target.value)} />
             <h3>Add Members</h3>
             {users.map(user => (
-                <div key={user.id}>
+                <div key={user.id} className="list-item new-conversation-list-item">
                     <p>{user.name}</p>
                     {memberIds.includes(user.id) || user.id === currentUser.uid 
                         ? <button disabled>Added!</button>
                         : <button onClick={() => addMemberId(user.id)}>Add</button>}
                 </div>
             ))}
-            <button onClick={createConversation}>Create Conversation</button>
+            <button
+                className="full-width space-before"
+                onClick={createConversation}
+            >Create Conversation</button>
         </div>
     )
 }

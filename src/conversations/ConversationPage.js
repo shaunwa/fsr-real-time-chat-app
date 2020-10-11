@@ -51,18 +51,21 @@ export const ConversationPage = () => {
     }
 
     return (
-        <div>
+        <div className="centered-container">
             {messages.map(message => (
-                <div key={message._id}>
+                <div key={message._id} className="list-item">
                     <h3>{message.postedBy.name}</h3>
                     <p>{message.text}</p>
                 </div>
             ))}
-            <input
-                type="text"
-                value={messageInputValue}
-                onChange={e => setMessageInputValue(e.target.value)} />
-            <button onClick={postMessage}>Post new message</button>
+            <div className="input-form">
+                <input
+                    type="text"
+                    placeholder="Enter a new message here"
+                    value={messageInputValue}
+                    onChange={e => setMessageInputValue(e.target.value)} />
+                <button onClick={postMessage}>Send</button>
+            </div>
         </div>
     );
 }

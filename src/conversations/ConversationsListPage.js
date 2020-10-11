@@ -11,21 +11,21 @@ export const ConversationsListPage = () => {
     return isLoading
         ? <p>Loading Messages...</p>
         : (
-        <div>
-            <h1>Conversations List</h1>
+        <div className="centered-container">
+            <h1 className="section-heading">Conversations List</h1>
             {conversations.map(conversation => (
                 <Link
                     to={`/conversations/${conversation._id}`}
                     key={conversation._id}
                 >
-                    <div>
+                    <div className="list-item">
                         <h3>{conversation.name}</h3>
                         <p>{conversation.memberIds.length} members</p>
                     </div>
                 </Link>
             ))}
             <Link to='/new-conversation'>
-                <button>New Conversation</button>
+                <button className="full-width space-before">New Conversation</button>
             </Link>
         </div>
     );
